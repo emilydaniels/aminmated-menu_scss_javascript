@@ -1,0 +1,152 @@
+$grey: #999;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(-70%);
+    transform: translateX(-70%);
+  }
+  100% {
+    transform: translateX(0);
+    transform: translateX(0);
+    background: black;
+  }
+}
+body {
+  margin: 0;
+  color: black;
+}
+nav {
+  a {
+    text-decoration: none;
+    color: $grey;
+  }
+  a:hover {
+    color: white;
+  }
+  ul {
+    list-style-type: none;
+    font-size: 2em;
+    position: absolute;
+    top: 3em;
+  }
+  li {
+    padding:.5em;
+  }
+}
+.container {
+  display: flex;
+  height: 100vh;
+}
+.container div {
+  padding: 1em;
+}
+
+.sidebar {
+  height: 100%;
+  width: 30%;
+  overflow: hidden;
+  transform: translateX(-70%);
+  transform: translateX(-70%);
+  position: relative;
+  transition: .5s;
+  transition: .5s;
+}
+
+.main {
+  //margin-left: -19em;
+  //margin-top: 4em;
+  position:absolute;
+  margin:3em;
+  z-index: -3;
+}
+h1 {
+  font-weight: 900;
+}
+#menu-icon {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  right: 10px;
+}
+.menu-icon span {
+  width: 50px;
+  height: 5px;
+  background: gray;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  margin: 4px 0;
+  padding: 4px 0;
+  transition: .5s;
+  transition: .5s;
+}
+.menu-icon span:before {
+  width: 50px;
+  height: 5px;
+  background: gray;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  margin: 4px 0;
+  padding: 4px 0;
+  transition: .5s;
+  transition: .5s;
+  content: '';
+  top: -15px;
+}
+.menu-icon span:after {
+  width: 50px;
+  height: 5px;
+  background: gray;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  margin: 4px 0;
+  padding: 4px 0;
+  transition: .5s;
+  transition: .5s;
+  content: '';
+  top: 7px;
+}
+.menu-icon span:hover, .menu-icon span:hover:before, .menu-icon span:hover:after {
+  background: black;
+  transition: .1s;
+  transition: .1s;
+}
+.open span {
+  background: transparent;
+}
+.open span:after {
+  transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+  background: white;
+  transition: .5s;
+  transition: .5s;
+}
+.open span:before {
+  transform: rotate(-45deg) translate(-8px, 8px);
+  transform: rotate(-45deg) translate(-8px, 8px);
+  background: white;
+  transition: .5s;
+  transition: .5s;
+}
+.open span:hover:after, .open span:hover:before {
+  background: $grey;
+}
+.slide-over {
+  animation: slide .5s forwards;
+}
+
+.move-over {
+  margin-left: 0;
+  transition: 1s;
+}function toggleNav() {
+  var updateElement = document.getElementById("menu-icon");
+  updateElement.classList.toggle ("open");
+  var updatePosition = document.getElementById("sidebar");
+  updatePosition.classList.toggle ("slide-over"); 
+}
